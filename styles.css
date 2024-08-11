@@ -1,0 +1,259 @@
+/* Global */
+
+:root {
+	--gap: 1rem;
+	--pad: 1rem;
+	--radius: 0.33rem;
+
+	--color1: #e27396;
+	--color2: #efcfe3;
+	--color3: #1b1b1b;
+}
+
+* {
+	font-family: 'Roboto', Courier, monospace;
+	box-sizing: border-box;
+}
+
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	overflow-y: scroll;
+}
+
+main {
+	display: grid;
+	min-height: 100dvh;
+	grid-template-rows: auto min-content;
+}
+
+/* Input */
+
+input {
+	border-radius: var(--radius);
+	outline: none;
+	padding: var(--pad);
+	border-color: var(--color1);
+}
+
+/* Button */
+
+button {
+	padding: var(--pad);
+	border: none;
+	border-radius: var(--radius);
+	font-size: 1rem;
+}
+
+button:hover {
+	background: radial-gradient(circle at left, #e27396 85%, #efcfe3) !important;
+	color: var(--color3) !important;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: all ease-in-out 200ms;
+}
+
+button:focus {
+	background: radial-gradient(circle at left, #e27396 85%, #efcfe3) !important;
+	color: var(--color3) !important;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: all ease-in-out 200ms;
+}
+
+button:focus-within {
+	background: radial-gradient(circle at left, #e27396 85%, #efcfe3) !important;
+	color: var(--color3) !important;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: all ease-in-out 200ms;
+}
+
+button.buy {
+	background-color: #e27396;
+}
+
+button.signin {
+	background-color: #e27396;
+}
+
+button.signup {
+	background-color: #efcfe3;
+}
+
+/* SignIn page */
+
+.signin-page {
+	display: grid;
+	gap: calc(var(--pad) * 2);
+	text-align: center;
+	align-self: center;
+}
+
+.signin-page .form {
+	display: grid;
+	gap: inherit;
+}
+
+.signin-page .form label {
+	text-align: left;
+}
+
+.signin-page .form div {
+	display: grid;
+	grid-template-rows: min-content 1fr;
+}
+
+.signin-page .form .actions {
+	display: grid;
+	gap: inherit;
+	grid-template-columns: 1fr 4fr;
+}
+
+header,
+footer {
+	background-color: #ea9ab2;
+	height: min-content;
+}
+
+/* Header */
+
+header {
+	position: fixed;
+	z-index: 100;
+	width: 100%;
+}
+
+header h1 {
+	white-space: nowrap;
+	font-family: 'Playwrite AR';
+	margin: 0;
+}
+
+header .title {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	color: var(--color3);
+	padding: 10px;
+
+	span {
+		text-align: right;
+		font-size: 0.8em;
+	}
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.hamburger {
+	display: none;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer;
+}
+
+.line {
+	width: 25px;
+	height: 3px;
+	background-color: #333;
+	transition: transform 0.3s ease;
+}
+
+.line.open:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+
+.line.open:nth-child(2) {
+	opacity: 0;
+}
+
+.line.open:nth-child(3) {
+	transform: translateY(-8px) rotate(-45deg);
+}
+
+.nav-item.active {
+	font-weight: bold;
+	background-color: #e27396;
+	border-top: 3px transparent solid;
+}
+
+@media screen and (min-width: 769px) {
+	.nav-item.active {
+		border-radius: var(--radius);
+	}
+}
+
+.nav-links {
+	display: flex;
+	gap: 15px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.nav-links.open {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links li {
+	padding: calc(var(--pad) - 6px) var(--pad);
+	text-align: center;
+	cursor: pointer;
+	border-bottom: 3px transparent solid;
+	border-top: 3px transparent solid;
+	display: grid;
+	align-items: center;
+
+	&:hover {
+		border-bottom: 3px #e27396 solid;
+		transition: all ease-in-out 200ms;
+	}
+}
+
+.offer {
+	display: grid;
+	padding: var(--pad);
+	background-color: #efcfe3;
+	color: var(--color3);
+	text-align: center;
+}
+
+@media (max-width: 768px) {
+	.hamburger {
+		display: flex;
+	}
+
+	.nav-links {
+		display: none;
+		flex-direction: column;
+	}
+}
+
+/* Footer */
+
+footer {
+	color: #ffffff;
+	text-align: center;
+	font-weight: bold;
+	padding: var(--pad);
+}
+
+@media screen and (min-width: 769px) {
+	.signin-page {
+		width: 85%;
+		margin: auto;
+	}
+}
